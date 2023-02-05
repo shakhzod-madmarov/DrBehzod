@@ -29,9 +29,9 @@ var swiper = new Swiper(".team-slider", {
 });
 
 const name = document.getElementById("name");
-const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const message = document.getElementById("message");
+
 const submit = document.getElementsByClassName("contact_form")[0];
 
 submit.addEventListener("submit", (e) => {
@@ -41,18 +41,17 @@ submit.addEventListener("submit", (e) => {
   let ebody = `
   <b>Name: </b>${name.value}
   <br>
-  <b>Email: </b>${email.value}
-  <br>
   <b>Phone Number: </b>${phone.value}
   <br>
   <b>Message: </b>${message.value}
+  <br>
   `;
 
   Email.send({
     SecureToken: "366f20d8-8621-4aa7-8fb7-97c21e63e956",
     To: "stomatolog.behzod@gmail.com ",
     From: "stomatolog.behzod@gmail.com",
-    Subject: "Message from " + email.value,
+    Subject: "Message from " + name.value,
     Body: ebody,
-  }).then((message) => alert("вы забронировали встречу"));
+  }).then((message) => alert("Bы забронировали встречу"));
 });
